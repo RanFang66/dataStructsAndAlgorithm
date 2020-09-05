@@ -6,3 +6,6 @@ includes common sorting algorithms like: bubble sort, insert sort, quick sort an
 
 ## link list
 the implimentation of link list ADT.
+
+## stack
+the implimentation of stack ADT.
