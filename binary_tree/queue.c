@@ -62,10 +62,10 @@ queue_length(queue_t q)
 }
 
 void
-queue_print(queue_t q)
+queue_traverse(queue_t q, void (*visit)(elem_t d))
 {
     for (int16_t i = 0; i < queue_length(q); i++)
-        printf("%d\t", q->data[(q->front+i) % q->size]);
+        visit(q->data[(q->front+i) % q->size]);
     printf("\n");
 }
 
