@@ -9,7 +9,7 @@ main(int argc, char* argv[])
 {
     tree_t t;
 
-    if (tree_create(&t))
+    if (!tree_create(&t))
         printf("Create a tree successfully.\n");
 
     printf("The pre-order traverse of tree:\n");
@@ -29,7 +29,7 @@ main(int argc, char* argv[])
     putchar('\n');
 
     tree_destroy(t);
-    printf("Tree is destroyed");
+    printf("Tree is destroyed\n");
 
     return 0;
 }
