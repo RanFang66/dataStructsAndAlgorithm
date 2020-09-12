@@ -12,3 +12,7 @@ the implimentation of stack ADT.
 
 ## queue
 the implementatiion of queue ADT.
+
+## tree
+### binary tree
+the implementation of binary tree and different traverse function in recursive way.
