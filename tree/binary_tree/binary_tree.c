@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "binary_tree.h"
 #include "queue.h"
+#include "stack.h"
 
 tree_status_t
 tree_create(tree_t *T)
@@ -83,6 +84,89 @@ levelorder_traverse(tree_t T, tree_status_t (*visit)(telem_t d))
             queue_en(q, front->rchild);
         visit(front->data);
     }
+    return TREE_OK;
+}
+
+tree_status_t
+preorder_unrecursive(tree_t T, tree_status_t (*visit)(telem_t d))
+{
+    stack_t s;
+    tree_t  cur;
+
+    if (T == NULL)
+        return TREE_EMPTY;
+
+    stack_init(&s, 100);
+    cur = T;
+    while (cur || !stack_is_empty(s)) {
+        while (cur) {
+            if (visit(cur->data) != TREE_OK)
+                return TREE_ACCESS_FAILED;
+            stack_push(s, cur);
+            cur = cur->lchild;
+        }
+        stack_pop(s, &cur);
+        cur = cur->rchild;
+    }
+    stack_free(&s);
+
+    return TREE_OK;
+}
+
+tree_status_t
+inorder_unrecursive(tree_t T, tree_status_t (*visit)(telem_t d))
+{
+    stack_t s;
+    tree_t  cur;
+
+    if (T == NULL)
+        return TREE_EMPTY;
+
+    stack_init(&s, 100);
+    cur = T;
+    while (cur || !stack_is_empty(s)) {
+        while (cur) {
+            stack_push(s, cur);
+            cur = cur->lchild;
+        }
+
+        stack_pop(s, &cur);
+        visit(cur->data);
+        cur = cur->rchild;
+    }
+    stack_free(&s);
+
+    return TREE_OK;
+}
+
+tree_status_t
+postorder_unrecursive(tree_t T, tree_status_t (*visit)(telem_t d))
+{
+    stack_t s;
+    tree_t  cur, last, top;
+
+    if (T == NULL)
+        return TREE_EMPTY;
+
+    stack_init(&s, 100);
+    cur = T;
+    while (cur || !stack_is_empty(s)) {
+        while (cur) {
+            stack_push(s, cur);
+            cur = cur->lchild;
+        }
+        stack_get(s, &top);
+
+        if (top->rchild == NULL || top->rchild == last) {
+            stack_pop(s, &top);
+            visit(top->data);
+            last = top;
+        } else {
+            cur = top->rchild;
+        }
+    }
+    stack_free(&s);
+
     return TREE_OK;
 }
 

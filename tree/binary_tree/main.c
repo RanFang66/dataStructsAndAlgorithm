@@ -28,6 +28,18 @@ main(int argc, char* argv[])
     levelorder_traverse(t, print_elem);
     putchar('\n');
 
+    printf("The pre-order traverse of tree without recursive:\n");
+    preorder_unrecursive(t, print_elem);
+    putchar('\n');
+
+    printf("The in-order traverse of tree without recursive:\n");
+    inorder_unrecursive(t, print_elem);
+    putchar('\n');
+
+    printf("The post-order traverse of tree without recursive:\n");
+    postorder_unrecursive(t, print_elem);
+    putchar('\n');
+
     tree_destroy(t);
     printf("Tree is destroyed\n");
 

@@ -9,7 +9,7 @@ struct TREE_NODE {
 typedef struct TREE_NODE tree_node, *tree_t;
 
 enum TREE_STATUS {
-    TREE_OK,
+    TREE_OK = 0,
     TREE_MALLOC_FAILED,
     TREE_EMPTY,
     TREE_ACCESS_FAILED
@@ -21,6 +21,9 @@ extern tree_status_t preorder_traverse(tree_t T, tree_status_t (*visit)(telem_t 
 extern tree_status_t inorder_traverse(tree_t T, tree_status_t (*visit)(telem_t d));
 extern tree_status_t postorder_traverse(tree_t T, tree_status_t (*visit)(telem_t d));
 extern tree_status_t levelorder_traverse(tree_t T, tree_status_t (*visit)(telem_t d));
+extern tree_status_t preorder_unrecursive(tree_t T, tree_status_t (*visit)(telem_t d));
+extern tree_status_t inorder_unrecursive(tree_t T, tree_status_t (*visit)(telem_t d));
+extern tree_status_t postorder_unrecursive(tree_t T, tree_status_t (*visit)(telem_t d));
 extern void tree_destroy(tree_t T);
 
 #endif /* _BINARY_TREE_H_  */
