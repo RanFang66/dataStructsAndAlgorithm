@@ -31,15 +31,22 @@ main(void)
         printf("%d. insert \t%d\t to avl tree.\n", i, val[i]);
     }
 
-    printf("print avl tree:\n");    
+    printf("print avl tree:\n");
     avl_mid_trav(root, print_avl_elem);
     printf("\n");
 
     printf("delete %d from avl tree.\n", val[0]);
     root = avl_delete(root, val[0]);
-    
-    printf("print avl tree:\n");    
-    avl_mid_trav(root, print_avl_elem);   
+
+    printf("print avl tree:\n");
+    avl_mid_trav(root, print_avl_elem);
+    printf("\n");
+
+    printf("delete %d from avl tree.\n", val[9]);
+    root = avl_delete(root, val[9]);
+
+    printf("print avl tree:\n");
+    avl_mid_trav(root, print_avl_elem);
     printf("\n");
 
     return 0;

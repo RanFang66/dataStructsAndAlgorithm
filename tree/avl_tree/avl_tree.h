@@ -26,6 +26,7 @@ extern avl_status_t avl_tree_status;
 extern void avl_tree_create(avl_tree_t *root);
 extern avl_tree_t avl_insert(avl_tree_t root, avl_elem_t data);
 extern avl_tree_t avl_delete(avl_tree_t root, avl_elem_t data);
+extern avl_node_t* avl_search(avl_tree_t root, avl_elem_t data);
 extern void avl_pre_trav(avl_tree_t root, visit_func_t visit);
 extern void avl_mid_trav(avl_tree_t root, visit_func_t visit);
 extern void avl_post_trav(avl_tree_t root, visit_func_t visit);

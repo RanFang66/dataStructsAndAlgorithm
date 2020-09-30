@@ -30,7 +30,7 @@ avl_height_update(avl_node_t *node)
     return node->height;
 }
 
-static avl_node_t* 
+static avl_node_t*
 avl_create_node(avl_elem_t val, avl_node_t *lch, avl_node_t *rch)
 {
     avl_node_t *p;
@@ -41,14 +41,14 @@ avl_create_node(avl_elem_t val, avl_node_t *lch, avl_node_t *rch)
     p->lch = lch;
     p->rch = rch;
     p->height = 0;//avl_height_update(p);
-    
+
     return p;
 }
 
-int 
+int
 avl_tree_height(avl_tree_t root)
 {
-    return TREE_HEIGHT(root); 
+    return TREE_HEIGHT(root);
 }
 
 static avl_node_t*
@@ -121,7 +121,7 @@ avl_insert(avl_tree_t t, avl_elem_t data)
         }
     }
     t->height = HEIGHT_UPDATE(t);
-    
+
     return t;
 }
 
@@ -150,11 +150,11 @@ avl_find_min(avl_tree_t t)
     return min;
 }
 
-static avl_node_t*
+avl_node_t*
 avl_search(avl_tree_t t, avl_elem_t val)
 {
     avl_node_t *node = t;
-    
+
     while (node != NULL && node->data != val) {
         if (node->data > val) {
             node = node->lch;
