@@ -15,7 +15,7 @@ the implimentation of link list ADT.
 the implimentation of stack ADT.
 
 ## queue
-the implementatiion of queue ADT.
+the implementation of queue ADT.
 
 ## tree
 ### binary tree
@@ -31,3 +31,8 @@ the implementation of AVL tree (balanced binary search tree).
 
 ### R-T tree
 
+
+
+## HASH MAP
+
+the implementation of hash map, use the open addressing method to solve the collision problem. Implement the linear probing, quadratic probing and the double hashing function in hash_func.c. 
